@@ -1,5 +1,7 @@
 package establishment;
 
+import filter.*;
+
 public abstract class Establishment {
 	private String nombre;
 	
@@ -8,8 +10,14 @@ public abstract class Establishment {
 		this.nombre = n;
 	}
 	
-	public abstract int getAverageAge();//borra esto, agregar metodos abs
-
-	public abstract int getAgeMonth();
+	public abstract int getAverageAgeMonth();//borra esto, agregar metodos abs
+	
+	public abstract int getCantAnimals();
+	
+	public abstract double getTotalWeight();
+	
+	public abstract double getAverageWeight();
+	
+	public abstract boolean isFilterOk(Filter f);
 	
 }

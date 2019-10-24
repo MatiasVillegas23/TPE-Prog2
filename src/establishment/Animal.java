@@ -1,7 +1,9 @@
 package establishment;
 
+import filter.Filter;
+
 public class Animal extends Establishment {
-	
+
 	private int id;
 	private int ageMonth;
 	private double weight;
@@ -9,7 +11,7 @@ public class Animal extends Establishment {
 	private char sex;
 	private boolean castrate;
 	private int calf;
-	
+
 	public Animal(String n, int id, int a, double w, String b, char s, boolean c, int calf) {
 		super(n);
 		this.id = id;
@@ -21,11 +23,19 @@ public class Animal extends Establishment {
 		this.calf = calf;
 	}
 	
-	public int getAverageAge(){
-		return this.ageMonth;
+	public double getAverageWeight() {
+		return this.getWeight();
 	}
 	
-	public int getAgeMonth(){
+	public double getTotalWeight() {
+		return this.getWeight();
+	}
+	
+	public int getCantAnimals() {
+		return 1;
+	}	
+
+	public int getAverageAgeMonth(){
 		return this.ageMonth;
 	}
 
@@ -80,4 +90,14 @@ public class Animal extends Establishment {
 	public void setCalf(int calf) {
 		this.calf = calf;
 	}
+
+	@Override
+	public boolean isFilterOk(Filter f) {
+		if(f.eval(this)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }

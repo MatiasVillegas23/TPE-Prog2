@@ -5,12 +5,12 @@ public class WeightFilter implements Filter{
 
 private int weight;
 	
-	public WeightFilter(int weight){
-		this.weight=weight;
+	public WeightFilter(int weight) {
+		this.weight = weight;
 	}
 	
-	public boolean eval(Establishment e){
-		return (e.getWeight()>=weight);//error
+	public boolean eval(Establishment e) {
+		return ((Animal)e).getWeight() >= weight;
 	}
 }
 

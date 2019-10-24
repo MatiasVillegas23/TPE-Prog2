@@ -6,10 +6,10 @@ public class AgeFilter implements Filter{
 private int age;
 	
 	public AgeFilter(int age){
-		this.age=age;
+		this.age = age;
 	}
 	
 	public boolean eval(Establishment e){
-		return (e.getAge()>=age);//error
+		return (e.getAverageAgeMonth() >= age);
 	}
 }
