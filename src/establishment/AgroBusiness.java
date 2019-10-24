@@ -10,7 +10,11 @@ public class AgroBusiness extends Establishment {
 		super(n);
 		this.Establishments = new ArrayList<Establishment>();
 	}
-
+	
+	public boolean toSell(Filter f) {
+		return isFilterOk(f);
+	}
+	
 	public boolean isFilterOk(Filter f) {
 		for (int i = 0; i < Establishments.size(); i++) {
 			if(!f.eval(Establishments.get(i))) {
