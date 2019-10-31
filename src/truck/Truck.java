@@ -1,6 +1,6 @@
 package truck;
 
-public class Truck implements Strategy{
+public class Truck {
 	private int id;
 	private int capacity;
 	
@@ -8,7 +8,7 @@ public class Truck implements Strategy{
 		this.id = id;
 		this.capacity = c;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -24,4 +24,6 @@ public class Truck implements Strategy{
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
+
+
 }

@@ -1,14 +1,32 @@
 package establishment;
 import java.util.ArrayList;
 import filter.*;
+import truck.Strategy;
+import truck.Truck;
 
 
-public class AgroBusiness extends Establishment {
+public class AgroBusiness extends Establishment implements Strategy {
 	private ArrayList<Establishment> Establishments;
-
-	public AgroBusiness(String n) {
+	private Strategy strategy;
+	
+	public AgroBusiness(String n, Strategy strategy) {
 		super(n);
 		this.Establishments = new ArrayList<Establishment>();
+		this.strategy = strategy;
+	}
+	
+	@Override
+	public ArrayList<Establishment> animalUp(Truck c, Strategy s) {
+		ArrayList<Establishment> aux = new ArrayList<>();
+		for (int i = 0; i < this.Establishments.size(); i++) {
+			if(s.eval(this.Establishments.get(i)));
+				aux.add(this.Establishments.get(i));
+		}
+		return aux;
+	}
+	
+	public void addAnimal(Establishment e) {
+		this.Establishments.add(e);
 	}
 	
 	public boolean toSell(Filter f) {
@@ -36,7 +54,6 @@ public class AgroBusiness extends Establishment {
 		return sum / Establishments.size();
 	}
 	
-	//recorrer el arreglo solo una vez en un método
 	public double getTotalWeight() {
 		int sum = 0;
 		for(int i = 1; i < Establishments.size(); i++){
@@ -52,5 +69,7 @@ public class AgroBusiness extends Establishment {
 		}
 		return sum / Establishments.size();
 	}
+
+
 
 }

@@ -1,5 +1,7 @@
 package truck;
+import java.util.ArrayList;
+import establishment.*;
 
 public interface Strategy {
-	void load();
+	ArrayList<Animal> eval(Establishment e);
 }

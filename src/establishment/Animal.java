@@ -1,8 +1,11 @@
 package establishment;
 
-import filter.Filter;
+import java.util.ArrayList;
 
-public class Animal extends Establishment {
+import filter.Filter;
+import truck.*;
+
+public class Animal extends Establishment implements Strategy{
 
 	private int id;
 	private int ageMonth;
@@ -23,6 +26,20 @@ public class Animal extends Establishment {
 		this.calf = calf;
 	}
 	
+	@Override
+	public boolean isFilterOk(Filter f) {
+		if(f.eval(this)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public ArrayList<Establishment> animalUp(Truck c, Filter f) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	public double getAverageWeight() {
 		return this.getWeight();
 	}
@@ -91,13 +108,6 @@ public class Animal extends Establishment {
 		this.calf = calf;
 	}
 
-	@Override
-	public boolean isFilterOk(Filter f) {
-		if(f.eval(this)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	
 	
 }
