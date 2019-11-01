@@ -1,11 +1,11 @@
 package filter;
 import establishment.*;
 
-public class AgeFilter implements UnitaryFilter{
+public class HigherAgeFilter implements UnitaryFilter{
 	
 private int age;
 	
-	public AgeFilter(int age){
+	public HigherAgeFilter(int age){
 		this.age = age;
 	}
 	

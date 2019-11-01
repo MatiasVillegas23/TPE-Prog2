@@ -1,8 +1,9 @@
 package filter;
+
+import java.util.ArrayList;
 import establishment.*;
 
 public interface Filter {
 	
-	public abstract boolean eval(Establishment e);
-	
+	public abstract ArrayList eval(AgroBusiness e);
 }

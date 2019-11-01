@@ -4,9 +4,9 @@ import filter.*;
 
 public class Category {
 	private String name;
-	private Filter filter;
+	private UnitaryFilter filter;
 
-	public Category(String n, Filter f) {
+	public Category(String n, UnitaryFilter f) {
 		this.name = n;
 	    this.filter = f;
 	}

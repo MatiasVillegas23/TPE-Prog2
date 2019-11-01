@@ -23,6 +23,10 @@ public class AgroBusiness extends Establishment{
 		return r;
 	}
 	
+	public ArrayList<Establishment> getEstablishments() {
+		return (ArrayList<Establishment>) Establishments.clone();
+	}
+
 	public void addAnimal(Establishment e) {
 		this.Establishments.add(e);
 	}

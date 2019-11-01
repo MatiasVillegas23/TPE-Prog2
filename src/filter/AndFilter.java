@@ -1,15 +1,15 @@
 package filter;
 import establishment.*;
 
-public class AndFilter implements Filter {
-	private Filter f1, f2;
+public class AndFilter implements UnitaryFilter {
+	private UnitaryFilter f1, f2;
 	
-	public AndFilter(Filter a, Filter b) {
+	public AndFilter(UnitaryFilter a, UnitaryFilter b) {
 		this.f1 = a;
 		this.f2 = b;
 	}
 	
-	public boolean eval(Establishment e){
-		return (f1.eval(e) && f2.eval(e));
+	public boolean eval(Animal a){
+		return (f1.eval(a) && f2.eval(a));
 	}
 }
