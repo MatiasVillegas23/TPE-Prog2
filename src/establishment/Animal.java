@@ -1,11 +1,9 @@
 package establishment;
 
-import java.util.ArrayList;
-
-import filter.Filter;
+import filter.*;
 import truck.*;
 
-public class Animal extends Establishment implements Strategy{
+public class Animal extends Establishment{
 
 	private int id;
 	private int ageMonth;
@@ -26,20 +24,19 @@ public class Animal extends Establishment implements Strategy{
 		this.calf = calf;
 	}
 	
-	@Override
-	public boolean isFilterOk(Filter f) {
-		if(f.eval(this)) {
+	public boolean sellAnimals(Truck t){
+		if (compliesWith(t.getFilter())) {
+			t.addAnimal(this);
 			return true;
 		} else {
 			return false;
 		}
 	}
-
-	@Override
-	public ArrayList<Establishment> animalUp(Truck c, Filter f) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public boolean compliesWith(UnitaryFilter u){
+		return u.eval(this);
 	}
+	
 	public double getAverageWeight() {
 		return this.getWeight();
 	}
@@ -107,7 +104,5 @@ public class Animal extends Establishment implements Strategy{
 	public void setCalf(int calf) {
 		this.calf = calf;
 	}
-
-	
 	
 }

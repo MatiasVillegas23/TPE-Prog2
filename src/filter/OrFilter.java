@@ -1,10 +1,10 @@
 package filter;
 import establishment.*;
 
-public class OrCargoFilter implements Filter {
+public class OrFilter implements Filter {
 	private Filter f1, f2;
 	
-	public OrCargoFilter(Filter a, Filter b) {
+	public OrFilter(Filter a, Filter b) {
 		this.f1 = a;
 		this.f2 = b;
 	}

@@ -1,7 +1,7 @@
 package filter;
 import establishment.*;
 
-public class AgeFilter implements Filter{
+public class AgeFilter implements UnitaryFilter{
 	
 private int age;
 	
@@ -9,7 +9,7 @@ private int age;
 		this.age = age;
 	}
 	
-	public boolean eval(Establishment e){
-		return (e.getAverageAgeMonth() >= age);
+	public boolean eval(Animal a){
+		return (a.getAverageAgeMonth() >= age);
 	}
 }

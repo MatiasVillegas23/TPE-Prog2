@@ -1,46 +1,31 @@
 package establishment;
+
 import java.util.ArrayList;
-import filter.*;
-import truck.Strategy;
-import truck.Truck;
+import truck.*;
 
-
-public class AgroBusiness extends Establishment implements Strategy {
+public class AgroBusiness extends Establishment{
 	private ArrayList<Establishment> Establishments;
-	private Strategy strategy;
 	
-	public AgroBusiness(String n, Strategy strategy) {
+	public AgroBusiness(String n) {
 		super(n);
 		this.Establishments = new ArrayList<Establishment>();
-		this.strategy = strategy;
 	}
 	
-	@Override
-	public ArrayList<Establishment> animalUp(Truck c, Strategy s) {
-		ArrayList<Establishment> aux = new ArrayList<>();
-		for (int i = 0; i < this.Establishments.size(); i++) {
-			if(s.eval(this.Establishments.get(i)));
-				aux.add(this.Establishments.get(i));
+	public boolean sellAnimals(Truck t){
+		boolean r = false;
+		for (int i = 0; i < this.Establishments.size() && i <= (t.getCapacity()); i++) {
+			if (Establishments.get(i).sellAnimals(t)) {
+				r = true;
+				Establishments.remove(i);
+				i--;
+			}
 		}
-		return aux;
+		return r;
 	}
 	
 	public void addAnimal(Establishment e) {
 		this.Establishments.add(e);
 	}
-	
-	public boolean toSell(Filter f) {
-		return isFilterOk(f);
-	}
-	
-	public boolean isFilterOk(Filter f) {
-		for (int i = 0; i < Establishments.size(); i++) {
-			if(!f.eval(Establishments.get(i))) {
-				return false;			
-			}
-		}
-		return true;
-	} 
 	
 	public int getCantAnimals() {
 		return this.Establishments.size();
@@ -69,7 +54,5 @@ public class AgroBusiness extends Establishment implements Strategy {
 		}
 		return sum / Establishments.size();
 	}
-
-
 
 }

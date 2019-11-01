@@ -1,16 +1,16 @@
 package establishment;
 
-import filter.*;
+import truck.*;
 
 public abstract class Establishment {
-	private String nombre;
+	private String name;
 	
 	
 	public Establishment(String n){
-		this.nombre = n;
+		this.setName(n);
 	}
 	
-	public abstract int getAverageAgeMonth();//borra esto, agregar metodos abs
+	public abstract int getAverageAgeMonth();
 	
 	public abstract int getCantAnimals();
 	
@@ -18,6 +18,14 @@ public abstract class Establishment {
 	
 	public abstract double getAverageWeight();
 	
-	public abstract boolean isFilterOk(Filter f);
+	public abstract boolean sellAnimals(Truck t);
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 }

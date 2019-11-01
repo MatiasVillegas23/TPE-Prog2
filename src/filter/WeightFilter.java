@@ -1,7 +1,7 @@
 package filter;
 import establishment.*;
 
-public class WeightFilter implements Filter{
+public class WeightFilter implements UnitaryFilter{
 
 private int weight;
 	
@@ -9,8 +9,8 @@ private int weight;
 		this.weight = weight;
 	}
 	
-	public boolean eval(Establishment e) {
-		return ((Animal)e).getWeight() >= weight;
+	public boolean eval(Animal a) {
+		return a.getWeight() >= weight;
 	}
 }
 

@@ -1,10 +1,10 @@
 package filter;
 import establishment.*;
 
-public class AndCargoFilter implements Filter {
+public class AndFilter implements Filter {
 	private Filter f1, f2;
 	
-	public AndCargoFilter(Filter a, Filter b) {
+	public AndFilter(Filter a, Filter b) {
 		this.f1 = a;
 		this.f2 = b;
 	}

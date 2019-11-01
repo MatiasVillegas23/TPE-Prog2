@@ -5,3 +5,6 @@
 /Filter.class
 /OrCargoFilter.class
 /WeightFilter.class
+/AndFilter.class
+/OrFilter.class
+/UnitaryFilter.class
