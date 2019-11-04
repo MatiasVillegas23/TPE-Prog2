@@ -33,6 +33,16 @@ public class Main {
 		
 		listAnimalsCategories(m, v2);
 	}
+	
+	private static boolean readyToSell(AgroBusiness a, UnitaryFilter f){
+		ArrayList<Establishment> aux = a.getEstablishments();
+		for (int i = 0; i < aux.size(); i++) {
+			if (!(a.isOkToSell(f))) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	private static void listAnimalsCategories(Ministry m, Animal a) {
 		ArrayList<String> aux = new ArrayList<String>();

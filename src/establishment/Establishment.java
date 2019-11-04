@@ -1,5 +1,6 @@
 package establishment;
 
+import filter.UnitaryFilter;
 import truck.*;
 
 public abstract class Establishment {
@@ -19,6 +20,8 @@ public abstract class Establishment {
 	public abstract double getAverageWeight();
 	
 	public abstract boolean sellAnimals(Truck t);
+	
+	public abstract boolean isOkToSell(UnitaryFilter f);
 
 	public String getName() {
 		return name;

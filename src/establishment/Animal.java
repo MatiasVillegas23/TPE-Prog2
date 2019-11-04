@@ -24,6 +24,10 @@ public class Animal extends Establishment{
 		this.calf = calf;
 	}
 	
+	public boolean isOkToSell(UnitaryFilter f){
+		return f.eval(this);
+	}
+	
 	public boolean sellAnimals(Truck t){
 		if (compliesWith(t.getFilter())) {
 			t.addAnimal(this);

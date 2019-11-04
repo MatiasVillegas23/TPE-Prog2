@@ -1,6 +1,8 @@
 package establishment;
 
 import java.util.ArrayList;
+
+import filter.*;
 import truck.*;
 
 public class AgroBusiness extends Establishment{
@@ -23,6 +25,16 @@ public class AgroBusiness extends Establishment{
 		return r;
 	}
 	
+	public boolean isOkToSell(UnitaryFilter f){
+		for (int i = 0; i < this.Establishments.size(); i++) {
+			if (!(this.Establishments.get(i).isOkToSell(f))) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Establishment> getEstablishments() {
 		return (ArrayList<Establishment>) Establishments.clone();
 	}
