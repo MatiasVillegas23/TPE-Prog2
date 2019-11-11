@@ -1,7 +1,8 @@
 package establishment;
 
+import java.util.ArrayList;
+
 import filter.*;
-import truck.*;
 
 public class Animal extends Establishment{
 
@@ -23,38 +24,48 @@ public class Animal extends Establishment{
 		this.castrate = c;
 		this.calf = calf;
 	}
-	
-	public boolean isOkToSell(UnitaryFilter f){
-		return f.eval(this);
+	public ArrayList<Animal> sellAnimals(Filter f){
+		ArrayList<Animal> aux = new ArrayList<>();
+		
+		if (f.eval(this)) {
+			aux.add(this);
+		}
+		return aux;
 	}
 	
-	public boolean sellAnimals(Truck t){
-		if (compliesWith(t.getFilter())) {
-			t.addAnimal(this);
-			return true;
-		} else {
-			return false;
+	@Override
+	public void deleteAnimal(Animal a) {
+		if (a.getId() == this.getId()) {
+			//preguntar como autoeliminarse
 		}
 	}
 	
-	public boolean compliesWith(UnitaryFilter u){
+	/*public boolean isOkToSell(UnitaryFilter f){
+		return f.eval(this);
+	}*/
+	
+	/*public boolean compliesWith(UnitaryFilter u){
 		return u.eval(this);
-	}
-	
-	public double getAverageWeight() {
-		return this.getWeight();
-	}
-	
-	public double getTotalWeight() {
-		return this.getWeight();
-	}
+	}*/
 	
 	public int getCantAnimals() {
 		return 1;
-	}	
-
-	public int getAverageAgeMonth(){
-		return this.ageMonth;
+	}
+	
+	public ArrayList<Integer> getAgeMonth() {
+		ArrayList<Integer> aux = new ArrayList<>();
+		aux.add(this.ageMonth);
+		return aux;
+	}
+	
+	public double getTotalWeight() {
+		return this.weight;
+	}
+	
+	public ArrayList<Double> getWeight() {
+		ArrayList<Double> aux = new ArrayList<>();
+		aux.add(this.weight);
+		return aux;
 	}
 
 	public void setAgeMonth(int ageMonth) {
@@ -67,10 +78,6 @@ public class Animal extends Establishment{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public double getWeight() {
-		return weight;
 	}
 
 	public void setWeight(double weight) {

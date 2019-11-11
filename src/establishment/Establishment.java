@@ -1,7 +1,8 @@
 package establishment;
 
-import filter.UnitaryFilter;
-import truck.*;
+import java.util.ArrayList;
+
+import filter.*;
 
 public abstract class Establishment {
 	private String name;
@@ -11,17 +12,37 @@ public abstract class Establishment {
 		this.setName(n);
 	}
 	
-	public abstract int getAverageAgeMonth();
-	
 	public abstract int getCantAnimals();
 	
 	public abstract double getTotalWeight();
 	
-	public abstract double getAverageWeight();
+	public abstract ArrayList<Integer> getAgeMonth();
 	
-	public abstract boolean sellAnimals(Truck t);
+	public abstract ArrayList<Double> getWeight();
 	
-	public abstract boolean isOkToSell(UnitaryFilter f);
+	public abstract ArrayList<Animal> sellAnimals(Filter f);
+	
+	public abstract void deleteAnimal(Animal a);
+	
+	//public abstract boolean isOkToSell(UnitaryFilter f);
+	
+	public int getAverageAge(){
+		ArrayList<Integer> aux = this.getAgeMonth();
+		int sum = 0;
+		for (int i = 0; i < aux.size(); i++) {
+			sum += aux.get(i);
+		}
+		return sum/aux.size();
+	}
+	
+	public Double getAverageWeight(){
+		ArrayList<Double> aux = this.getWeight();
+		double sum = 0;
+		for (int i = 0; i < aux.size(); i++) {
+			sum += aux.get(i);
+		}
+		return sum/aux.size();
+	}
 
 	public String getName() {
 		return name;

@@ -1,9 +1,8 @@
 package filter;
-
-import java.util.ArrayList;
 import establishment.*;
 
-public interface Filter {//quizas este de mas esdta clase
+public interface Filter {
 	
-	public abstract ArrayList eval(AgroBusiness e);
+	public abstract boolean eval(Establishment e);
+	
 }

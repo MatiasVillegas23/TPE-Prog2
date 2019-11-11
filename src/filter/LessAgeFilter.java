@@ -1,15 +1,15 @@
 package filter;
 
-import establishment.Animal;
+import establishment.*;
 
-public class LessAgeFilter implements UnitaryFilter{
+public class LessAgeFilter implements Filter{
 private int age;
 	
 	public LessAgeFilter(int age){
 		this.age = age;
 	}
 	
-	public boolean eval(Animal a){
-		return !(a.getAverageAgeMonth() >= age);
+	public boolean eval(Establishment e){
+		return !(e.getAverageAge() >= age);
 	}
 }

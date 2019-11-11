@@ -1,18 +1,15 @@
 package truck;
 import java.util.ArrayList;
 import establishment.*;
-import filter.*;
 
 public class Truck {
 	private int id;
 	private int capacity;
-	private UnitaryFilter filter;
 	private ArrayList<Animal> Animals;
 	
-	public Truck(int id, int c, UnitaryFilter f) {
+	public Truck(int id, int c) {
 		this.id = id;
 		this.capacity = c;
-		this.filter = f;
 		this.Animals = new ArrayList<Animal>();
 	}
 	
@@ -20,14 +17,6 @@ public class Truck {
 		Animals.add(a);
 	}
 	
-	public UnitaryFilter getFilter() {
-		return filter;
-	}
-
-	public void setFilter(UnitaryFilter filter) {
-		this.filter = filter;
-	}
-
 	@SuppressWarnings("unchecked")
 	public ArrayList<Animal> getAnimals() {
 		return (ArrayList<Animal>) Animals.clone();

@@ -3,72 +3,79 @@ package establishment;
 import java.util.ArrayList;
 
 import filter.*;
-import truck.*;
 
 public class AgroBusiness extends Establishment{
-	private ArrayList<Establishment> Establishments;
+	private ArrayList<Establishment> establishments;
 	
 	public AgroBusiness(String n) {
 		super(n);
-		this.Establishments = new ArrayList<Establishment>();
+		this.establishments = new ArrayList<Establishment>();
 	}
 	
-	public boolean sellAnimals(Truck t){
-		boolean r = false;
-		for (int i = 0; i < this.Establishments.size() && i <= (t.getCapacity()); i++) {
-			if (Establishments.get(i).sellAnimals(t)) {
-				r = true;
-				Establishments.remove(i);
-				i--;
-			}
-		}
-		return r;
+	public ArrayList<Animal> sellAnimals(Filter f){
+		ArrayList<Animal> aux = new ArrayList<>();
+		for(Establishment e: establishments)
+			aux.addAll(e.sellAnimals(f));
+		return aux;
 	}
 	
-	public boolean isOkToSell(UnitaryFilter f){
-		for (int i = 0; i < this.Establishments.size(); i++) {
-			if (!(this.Establishments.get(i).isOkToSell(f))) {
+	/*public boolean isOkToSell(UnitaryFilter f){
+		for (int i = 0; i < this.establishments.size(); i++) {
+			if (!(this.establishments.get(i).isOkToSell(f))) {
 				return false;
 			}
 		}
 		return true;
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	public ArrayList<Establishment> getEstablishments() {
-		return (ArrayList<Establishment>) Establishments.clone();
+		return (ArrayList<Establishment>) establishments.clone();
 	}
 
-	public void addAnimal(Establishment e) {
-		this.Establishments.add(e);
+	@Override
+	public ArrayList<Integer> getAgeMonth() {
+		ArrayList<Integer> aux = new ArrayList<>();
+		for (int i = 0; i < this.establishments.size(); i++) {
+			aux.addAll(this.establishments.get(i).getAgeMonth());
+		}
+		return aux;
+	}
+
+	@Override
+	public ArrayList<Double> getWeight() {
+		ArrayList<Double> aux = new ArrayList<>();
+		for (int i = 0; i < this.establishments.size(); i++) {
+			aux.addAll(this.establishments.get(i).getWeight());
+		}
+		return aux;
 	}
 	
 	public int getCantAnimals() {
-		return this.Establishments.size();
+		int sum = 0;
+		for (int i = 0; i < this.establishments.size(); i++) {
+			sum += this.establishments.get(i).getCantAnimals();
+		}
+		return sum;
 	}
 
-	public int getAverageAgeMonth() {
-		int sum = 0;
-		for(int i = 1; i < Establishments.size(); i++){
-			sum += Establishments.get(i).getAverageAgeMonth();
-		}
-		return sum / Establishments.size();
-	}
-	
+	@Override
 	public double getTotalWeight() {
-		int sum = 0;
-		for(int i = 1; i < Establishments.size(); i++){
-			sum += Establishments.get(i).getTotalWeight();
+		double sum = 0;
+		for (int i = 0; i < this.establishments.size(); i++) {
+			sum += this.establishments.get(i).getTotalWeight();
 		}
 		return sum;
 	}
 	
-	public double getAverageWeight() {
-		int sum = 0;
-		for(int i = 1; i < Establishments.size(); i++){
-			sum += Establishments.get(i).getAverageWeight();
+	public void deleteAnimal(Animal a){
+		for (int i = 0; i < this.establishments.size(); i++) {
+			this.establishments.get(i).deleteAnimal(a);
 		}
-		return sum / Establishments.size();
+	}
+
+	public void addAnimal(Establishment e) {
+		this.establishments.add(e);
 	}
 
 }
