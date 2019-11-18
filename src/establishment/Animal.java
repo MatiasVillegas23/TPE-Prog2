@@ -24,6 +24,7 @@ public class Animal extends Establishment{
 		this.castrate = c;
 		this.calf = calf;
 	}
+	
 	public ArrayList<Animal> sellAnimals(Filter f){
 		ArrayList<Animal> aux = new ArrayList<>();
 		
@@ -34,10 +35,9 @@ public class Animal extends Establishment{
 	}
 	
 	@Override
-	public void deleteAnimal(Animal a) {
-		if (a.getId() == this.getId()) {
-			//preguntar como autoeliminarse
-		}
+	public boolean equals(Object a){
+		Animal a1 = (Animal)a;
+		return a1.getId()==this.getId();
 	}
 	
 	/*public boolean isOkToSell(UnitaryFilter f){

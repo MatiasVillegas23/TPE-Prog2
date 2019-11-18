@@ -70,12 +70,16 @@ public class AgroBusiness extends Establishment{
 	
 	public void deleteAnimal(Animal a){
 		for (int i = 0; i < this.establishments.size(); i++) {
-			this.establishments.get(i).deleteAnimal(a);
+			//preguntar esto
 		}
 	}
 
 	public void addAnimal(Establishment e) {
 		this.establishments.add(e);
+	}
+	
+	public void removeAnimal(Animal a) {
+		this.establishments.remove(a);//funciona con equals?
 	}
 
 }

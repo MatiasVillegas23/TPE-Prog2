@@ -7,19 +7,19 @@ import filter.*;
 import truck.*;
 
 public class AgriculturalSystem {
-	private Establishment establishment;
+	private AgroBusiness AgroBusiness;
 	private Truck truck;
 	private Filter filter;
 	
-	public AgriculturalSystem(Establishment e, Truck t, Filter f){
-		this.establishment = e;
+	public AgriculturalSystem(AgroBusiness a, Truck t, Filter f){
+		this.AgroBusiness = a;
 		this.truck = t;
 		this.filter = f;
 	}
 	
 	public void loadTruck(){
 		ArrayList<Animal> aux = new ArrayList<>();
-		aux = this.establishment.sellAnimals(this.filter);
+		aux = this.AgroBusiness.sellAnimals(this.filter);
 		ArrayList<Animal> aux2 = new ArrayList<>();
 		
 		for (int i = 0; i < this.truck.getCapacity(); i++) {
@@ -31,7 +31,7 @@ public class AgriculturalSystem {
 	
 	private void deleteAnimals(ArrayList<Animal> a){
 		for (int i = 0; i < a.size(); i++) {
-			this.establishment.deleteAnimal(a.get(i));
+			this.AgroBusiness.deleteAnimal(a.get(i));//preguntar aca
 		}
 	}
 	

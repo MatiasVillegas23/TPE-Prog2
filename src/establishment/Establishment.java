@@ -22,7 +22,7 @@ public abstract class Establishment {
 	
 	public abstract ArrayList<Animal> sellAnimals(Filter f);
 	
-	public abstract void deleteAnimal(Animal a);
+	//public abstract void deleteAnimal(Animal a);
 	
 	//public abstract boolean isOkToSell(UnitaryFilter f);
 	

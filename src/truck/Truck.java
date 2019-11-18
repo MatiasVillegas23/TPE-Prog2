@@ -31,11 +31,11 @@ public class Truck {
 	}
 
 	public int getCapacity() {
-		return capacity;
+		return capacity-Animals.size();
 	}
 
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-
+	
 }
