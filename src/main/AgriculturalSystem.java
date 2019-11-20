@@ -22,7 +22,7 @@ public class AgriculturalSystem {
 		aux = this.AgroBusiness.sellAnimals(this.filter);
 		ArrayList<Animal> aux2 = new ArrayList<>();
 		
-		for (int i = 0; i < this.truck.getCapacity(); i++) {
+		for (int i = 0; i < this.truck.getCapacity() && i < aux.size() ; i++) {
 			this.truck.addAnimal(aux.get(i));
 			aux2.add(aux.get(i));
 		}
@@ -31,7 +31,7 @@ public class AgriculturalSystem {
 	
 	private void deleteAnimals(ArrayList<Animal> a){
 		for (int i = 0; i < a.size(); i++) {
-			this.AgroBusiness.deleteAnimal(a.get(i));//preguntar aca
+			this.AgroBusiness.deleteAnimal(a.get(i));
 		}
 	}
 	

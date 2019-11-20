@@ -36,10 +36,15 @@ public class Animal extends Establishment{
 	
 	@Override
 	public boolean equals(Object a){
-		Animal a1 = (Animal)a;
-		return a1.getId()==this.getId();
+		if (a instanceof Animal) {
+			Animal a1 = (Animal)a;
+			return a1.getId()==this.getId();
+		}else return false;
+		
 	}
-	
+	public boolean deleteAnimal(Animal a) {
+		return false;
+	}
 	/*public boolean isOkToSell(UnitaryFilter f){
 		return f.eval(this);
 	}*/
@@ -52,20 +57,16 @@ public class Animal extends Establishment{
 		return 1;
 	}
 	
-	public ArrayList<Integer> getAgeMonth() {
-		ArrayList<Integer> aux = new ArrayList<>();
-		aux.add(this.ageMonth);
-		return aux;
-	}
+	public int getAgeMonth() {
+		return this.ageMonth;
+	}	
 	
-	public double getTotalWeight() {
+	/*public double getTotalWeight() {
+		return this.getWeight();
+	}*/
+	
+	public double getWeight() {
 		return this.weight;
-	}
-	
-	public ArrayList<Double> getWeight() {
-		ArrayList<Double> aux = new ArrayList<>();
-		aux.add(this.weight);
-		return aux;
 	}
 
 	public void setAgeMonth(int ageMonth) {

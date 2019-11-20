@@ -34,21 +34,21 @@ public class AgroBusiness extends Establishment{
 	}
 
 	@Override
-	public ArrayList<Integer> getAgeMonth() {
-		ArrayList<Integer> aux = new ArrayList<>();
+	public int getAgeMonth() {
+		int sum = 0;
 		for (int i = 0; i < this.establishments.size(); i++) {
-			aux.addAll(this.establishments.get(i).getAgeMonth());
+			sum += this.establishments.get(i).getAgeMonth();
 		}
-		return aux;
+		return sum;
 	}
 
 	@Override
-	public ArrayList<Double> getWeight() {
-		ArrayList<Double> aux = new ArrayList<>();
+	public double getWeight() {
+		double sum = 0;
 		for (int i = 0; i < this.establishments.size(); i++) {
-			aux.addAll(this.establishments.get(i).getWeight());
+			sum += this.establishments.get(i).getWeight();
 		}
-		return aux;
+		return sum;
 	}
 	
 	public int getCantAnimals() {
@@ -59,19 +59,22 @@ public class AgroBusiness extends Establishment{
 		return sum;
 	}
 
-	@Override
+	/*@Override
 	public double getTotalWeight() {
-		double sum = 0;
-		for (int i = 0; i < this.establishments.size(); i++) {
-			sum += this.establishments.get(i).getTotalWeight();
-		}
-		return sum;
-	}
+		return this.getWeight();
+	}*/
 	
-	public void deleteAnimal(Animal a){
+	public boolean deleteAnimal(Animal a){
+		if (this.establishments.contains(a)) {
+			removeAnimal(a);
+			return true;
+		}else
 		for (int i = 0; i < this.establishments.size(); i++) {
-			//preguntar esto
+			if (this.establishments.get(i).deleteAnimal(a)) {
+				return true;
+			}
 		}
+		return false;
 	}
 
 	public void addAnimal(Establishment e) {
@@ -79,7 +82,7 @@ public class AgroBusiness extends Establishment{
 	}
 	
 	public void removeAnimal(Animal a) {
-		this.establishments.remove(a);//funciona con equals?
+		this.establishments.remove(a);
 	}
 
 }

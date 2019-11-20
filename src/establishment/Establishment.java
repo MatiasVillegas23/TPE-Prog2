@@ -14,34 +14,24 @@ public abstract class Establishment {
 	
 	public abstract int getCantAnimals();
 	
-	public abstract double getTotalWeight();
+	//public abstract double getTotalWeight();
 	
-	public abstract ArrayList<Integer> getAgeMonth();
+	public abstract int getAgeMonth();//edad total del simple suma de edades de todo lo que contiene el compuesto
 	
-	public abstract ArrayList<Double> getWeight();
+	public abstract double getWeight();//pero total del simple y suma de pesos de todo lo que contiene el compuesto
 	
 	public abstract ArrayList<Animal> sellAnimals(Filter f);
 	
-	//public abstract void deleteAnimal(Animal a);
+	public abstract boolean deleteAnimal(Animal a);
 	
 	//public abstract boolean isOkToSell(UnitaryFilter f);
 	
 	public int getAverageAge(){
-		ArrayList<Integer> aux = this.getAgeMonth();
-		int sum = 0;
-		for (int i = 0; i < aux.size(); i++) {
-			sum += aux.get(i);
-		}
-		return sum/aux.size();
+		return this.getAgeMonth()/this.getCantAnimals();
 	}
 	
 	public Double getAverageWeight(){
-		ArrayList<Double> aux = this.getWeight();
-		double sum = 0;
-		for (int i = 0; i < aux.size(); i++) {
-			sum += aux.get(i);
-		}
-		return sum/aux.size();
+		return this.getWeight()/this.getCantAnimals();
 	}
 
 	public String getName() {
